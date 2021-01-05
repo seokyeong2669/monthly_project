@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "/Users/leeseokyoung/.local/share/virtualenvs/month1_project-I8vhL7mU/bin/python",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.linting.flake8Args": [
+        "--max-line-length=88"
+    ],
+    "git.ignoreLimitWarning": true
+}

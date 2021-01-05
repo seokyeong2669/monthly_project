@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>[1기]이석영 Netflix Data EDA</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+        .wrap {
+            width: 1500px;
+            margin: 50px auto;
+            font-family: 'Nanum Gothic', sans-serif;
+            color: white;
+        }
+
+        .title {
+            width: 400px;
+            margin: auto;
+            margin-bottom: 50px;
+            font-family: Helvetica, sans-serif;
+
+        }
+
+        .sub_2 {
+            margin-top: 80px;
+        }
+
+        .sub_3 {
+            margin-top: 80px;
+            margin-bottom: 50px;
+        }
+
+        .sentence {
+            text-indent: 20px;
+        }
+    </style>
+</head>
+
+<body bgcolor="black">
+    <div class="wrap">
+        <div class="editor">[인공지능 DEV 코스 1기] 이석영</div>
+        <div class="title">
+            <h1><span style="color : red"><span style="font-size:150px">N</span></span><span
+                    style="font-size:40px">etflix Data 분석</span></h1>
+        </div>
+
+        <div class='sub_1'>
+            <p>
+            <h2>1. 개요</h2>
+            </p>
+            <p class='sentence'>- 요즘 내가 가장 애용하는 OTT 서비스 넷플릭스의 2019년까지 제작된 영화, TV Show 관련 데이터이다.</p>
+            <p class='sentence'>- 최근(2020년) 데이터가 없어 아쉽기는하지만 개인적으로 워낙 관심이 많은 기업이고 실제로 사용 중인 서비스이기때문에 재미있고 유의미한 결과를 얻을 수
+                있을 것으로 기대한다.</p>
+            <p>
+        </div>
+
+        <div class='sub_2'>
+            <h2>2. Data 예측</h2>
+
+            <p>
+            <h3 style="font-weight:bold">1) 연도별 제작된 작품 증가 추이(release_year)</h3>
+            </p>
+            <p class='sentence'>- 해가 지나면서 넷플릭스 기업이 세계적으로 빠르고 급격히 성장했으므로 제작된 제품의 수는 점점 증가할 것이고 그 증가 폭도 늘어날 것으로 예상한다.</p>
+            <p class='sentence'>- 2020년 코로나가 발생으로 OTT 시장에 어떤 영향을 주었는지 알고싶지만 아쉽게도 이 데이터는 19년에 수집한 것으로 확인이 불가능하다는 한계가있다.
+            </p>
+            <p>
+            <h3 style="font-weight:bold">2) 국가별 제작편수(country)</h3>
+            </p>
+            <p class='sentence'>- 넷플릭스가 미국 기업이기에 단연 1등 그 외에는 유렵에 있는 국가들 또는 한중일이 뒤를 이을 것으로 예상한다. </p>
+            <p class='sentence'>- 특히 우리나라의 제작편수가 궁금하며 아마도 5위권 안에 들지않을까 예상한다.</p>
+            <p>
+            <h3 style="font-weight:bold">3) 넷플릭스 시리즈 다작배우(cast)</h3>
+            </p>
+            <p class='sentence'>- cast 변수를 통해 넷플릭스 작품중에서 가장 다작을 한 배우가 누구인지 확인해 볼 수 있을 것 같다.</p>
+            <p class='sentence'>- 헐리우드 배우 중 대중적으로 잘 알려진 배우일 것으로 예상한다.</p>
+        </div>
+
+        <div class='sub_2'>
+            <h2>3. Data 분석결과</h2>
+            </p>
+            <p>
+            <h3 style="font-weight:bold">1-1) 연도별 제작된 작품 증가 추이</h3>
+            </p>
+            {% load static %}
+            <img src="{% static 'count_by_year.jpg' %}" alt="My image" , width="800px">
+            <p class='sentence'>- 해마다 출시되는 편수가 점점 증가하고있음을 알수있다. 특히 2015년과 2016년에 극적으로 증가했다. 이때 아무래도 넷플렉스의 고객도 가장 늘어나고
+                사업적으로도 큰 변화와 확대가 있었을 것이다.</p>
+            <p class='sentence'>- 다만, 2019년에는 어떤이유인지 2018년보다 조금 감소했는데 그동안 사업을 무리하게 확장해서 포화되었던 것인지 아니면 기업에서 어떤 이슈가 있었기
+                때문인지 확인이 필요할 것 같다.</p>
+            <p class='sentence'>- 2020년에 출시편수가 거의 없는 것으로보아 해당연도 초쯤에 수집한 데이터인 듯하다.</p>
+
+            <div class='sub_2'>
+                <p>
+                <h3 style="font-weight:bold">1-2) Movie VS TV Show 연도별 제작된 작품 증가 추이</h3>
+                </p>
+                {% load static %}
+                <img src="{% static 'movie_vs_tv.jpg' %}" alt="My image" , width="800px">
+                <p class='sentence'>- 영화와 TV쇼 모두 점점 해가갈수록 작품수가 증가하는 추세이나 상대적으로 TV쇼가 차지하는 비중이 점점 커지고있다. 2019년에는 결국 영화를
+                    앞질렀다. </p>
+                <p class='sentence'>- 넷플릭스가 시간이갈수록 영화보다 TV Show 제작에 사업의 무게를 두고있다고 볼 수 있지만 특이한 점은 2019년에 출시된 작품수가 영화는 매우
+                    크게 감소했고 TV Show는 그 증가율이 매우 작았는데</p>
+                <p class='sentence'> 당해년도에 무슨일이 있었던 것인지, 아니면 사업이 포화되어 이제 작품수 증가가 앞으로 거의 없는 것인지 현재 데이터로는 알 수 없다.</p>
+            </div>
+
+            <div class='sub_3'>
+                <p>
+                <h3 style="font-weight:bold">2) 국가별 제작편수 Top10 (~2020)</h3>
+                </p>
+                {% load static %}
+                <img src="{% static 'Country_until_20.jpg' %}" alt="My image" , width="800px">
+                <p class='sentence'>- 예상과 다르게 2위에 인도가 있다. 인도의 발리우드 산업에대해서는 알고있었지만 이렇게 클 것이라고는 예상하지 못했고 아무래도 국내 넷플리스에는 인도
+                    작품이 잘 보이지않아 더 의외였던 것 같다.</p>
+                <p class='sentence'>- 또한 예상과 달리 10위안에 중국이 없었고 대신 멕시코가 자리했다.</p>
+                <p class='sentence'>- 가장 중요한 우리나라는 8위. 생각보다 작품수가 적었다. 하지만 지금 결과는 2020년 까지의 누적 데이터이기 때문에 넷플릭스가 우리나라에 늦게
+                    진출했다면 누적 제작편수가 작을 수 밖에 없다고 생각했다.</p>
+                <p class='sentence'>따라서 가장 최근이라고 할 수 있는 18년 ~ 20년 국가별 제작편수만을 따로 확인해 보겠다.</p>
+            </div>
+
+            {% load static %}
+            <img src="{% static 'Country_18_to_2020.jpg' %}" alt="My image" , width="800px">
+            <p class='sentence'>- 결과적으로 18~20년으로 기간으로 한정해도 크게 차이는 없었고 다만 10위권 내에 독일대신 중국이 진입한 걸 확인할 수 있었다.</p>
+
+            <div class='sub_2'>
+                <p>
+                <h3 style="font-weight:bold">3) 넷플릭스 시리즈 다작배우</h3>
+                </p>
+                {% load static %}
+                <img src="{% static 'actors_count.jpg' %}" alt="My image" , width="800px">
+                <p class='sentence'>- 2010년 이후로 넷플릭스에서 가장 다작을 하고있는 배우가 누구인지 30위까지 뽑아보았다.</p>
+                <p class='sentence'>- 의외로 내가 알고있는 배우가 거의 없었다. 니콜라스케이지(23위) 정도..</p>
+                <p class='sentence'>- 이유를 확인해보니 1~5위까지가 모두 인도배우였고 그 뒤에 순위도 크게 다르지않을 것이라고 생각한다.</p>
+                <p class='sentence'>- 인도가 미국보다 제작편수가 작음에도 다작배우가 많은데 인도에서 배우의 수가 적어 한 배우가 여러 작품을 찍는다고
+                    생각할 수 있고 반대로 미국에서 배우의 수가 너무 많아 작품당 출연빈도수가 낮다고 볼 수 있다.</p>
+            </div>
+
+            </p>
+            <div class='sub_3'>
+                {% load static %}
+                <img src="{% static 'except_india.jpg' %}" alt="My image" , width="800px">
+                <p class='sentence'>- 인도 배우를 제외하고 다시 확인해보았다.</p>
+                <p class='sentence'>- 역시나 아는 배우가 별로없어 상위권 배우들을 검색해보니 대부분 성우들이었다.</p>
+                <p class='sentence'>- 아마도 성우라는 직업이 배우보다 수가 작다보니 애니메이션, 다큐 등에서 참여를 많이한 듯 싶다. 아쉽게도 현재 데이터로는 성우를 따로 분리할 수가
+                    없다.</p>
+
+            </div>
+
+</body>
+
+</html>
